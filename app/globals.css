@@ -1,26 +1,142 @@
 @import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+@custom-variant dark (&:is(.dark *));
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: var(--font-sans);
+  --font-serif: var(--font-serif);
+  --font-heading: var(--font-serif);
+
+  --color-emerald-deep: #132e22;
+  --color-emerald-resort: #1b4332;
+  --color-emerald-light: #2d6a4f;
+  --color-terracotta: #c46d3b;
+  --color-terracotta-hover: #b05c2d;
+  --color-gold-warm: #d4a373;
+  --color-stone-beige: #f7f4ee;
+  --color-stone-card: #ffffff;
+  --color-stone-dark: #232724;
+
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+  --radius-2xl: calc(var(--radius) * 1.8);
+  --radius-3xl: calc(var(--radius) * 2.2);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+:root {
+  --background: #f7f4ee;
+  --foreground: #1c2b21;
+  --card: #ffffff;
+  --card-foreground: #1c2b21;
+  --popover: #ffffff;
+  --popover-foreground: #1c2b21;
+  --primary: #183d2c;
+  --primary-foreground: #fcfbfa;
+  --secondary: #eee9dc;
+  --secondary-foreground: #183d2c;
+  --muted: #f0ebe0;
+  --muted-foreground: #5e6b62;
+  --accent: #eee8db;
+  --accent-foreground: #183d2c;
+  --destructive: #b91c1c;
+  --border: #e4dcce;
+  --input: #ded4c3;
+  --ring: #c46d3b;
+  --radius: 0.75rem;
+
+  --sidebar: #f2eee6;
+  --sidebar-foreground: #1c2b21;
+  --sidebar-primary: #183d2c;
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: #e5dec9;
+  --sidebar-accent-foreground: #183d2c;
+  --sidebar-border: #ded4c3;
+  --sidebar-ring: #c46d3b;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  html {
+    scroll-behavior: smooth;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-family: var(--font-sans), sans-serif;
+    color: #1b2f24;
+    background-color: #f7f4ee;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-serif), Georgia, serif;
+    letter-spacing: -0.015em;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* Custom resort design utilities */
+.bg-resort-cream {
+  background-color: #f7f4ee;
+}
+
+.bg-resort-dark {
+  background-color: #12281e;
+}
+
+.text-resort-green {
+  color: #183d2c;
+}
+
+.text-terracotta {
+  color: #c46d3b;
+}
+
+.bg-terracotta {
+  background-color: #c46d3b;
+}
+
+.bg-terracotta:hover {
+  background-color: #b05c2d;
+}
+
+.border-resort-gold {
+  border-color: #d4a373;
+}
+
+.shadow-subtle {
+  box-shadow: 0 4px 20px -2px rgba(27, 67, 50, 0.06), 0 2px 6px -1px rgba(27, 67, 50, 0.04);
+}
+
+.shadow-elevated {
+  box-shadow: 0 10px 30px -4px rgba(27, 67, 50, 0.1), 0 4px 12px -2px rgba(27, 67, 50, 0.05);
 }
